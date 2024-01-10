@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop File Upload</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #drop-area {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #drop-area.dragover {
+      background-color: #e1f7e4; /* Change the background color when dragging over */
+    }
+
+    #file-input {
+      display: none;
+    }
+
+    #file-label {
+      color: #333;
+      font-weight: bold;
+    }
+
+    #file-preview {
+      margin-top: 20px;
+      max-width: 100%;
+    }
+
+    #buttons-container {
+      margin-top: 20px;
+    }
+
+    button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="drop-area" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+  <form id="upload-form">
+    <input type="file" id="file-input" accept=".pdf" onchange="handleFileSelect(event)">
+    <label for="file-input" id="file-label">Drag & Drop a PDF file here or click to select</label>
+    <div id="file-preview"></div>
+    <div id="buttons-container">
+      <button type="button" onclick="submitForm()">Submit</button>
+      <button type="button" onclick="deleteFile()">Delete</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  let selectedFile;
+
+  function handleDragOver(event) {
+    event.preventDefault();
+    const dropArea = document.getElementById("drop-area");
+    dropArea.classList.add("dragover");
+    dropArea.innerText = "Drop your file here!";
+  }
+
+  function handleDragLeave(event) {
+    const dropArea = document.getElementById("drop-area");
+    dropArea.classList.remove("dragover");
+    dropArea.innerText = "Drag & Drop a PDF file here or click to select";
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+
+    if (files.length > 0) {
+      // Handle the dropped files
+      handleFiles(files);
+    }
+  }
+
+  function handleFileSelect(event) {
+    event.preventDefault();
+
+    const files = event.target.files || event.dataTransfer.files;
+
+    if (files.length > 0) {
+      // Handle the uploaded files
+      handleFiles(files);
+    }
+  }
+
+  function handleFiles(files) {
+    const filePreview = document.getElementById("file-preview");
+    const fileLabel = document.getElementById("file-label");
+
+    for (const file of files) {
+      console.log("File name:", file.name);
+      console.log("File type:", file.type);
+      console.log("File size:", file.size);
+
+      // Display file name and preview
+      fileLabel.innerText = `Selected File: ${file.name}`;
+      selectedFile = file;
+
+      // Display PDF preview (you may need a library for more complex previews)
+      if (file.type === 'application/pdf') {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const pdfObject = document.createElement("object");
+          pdfObject.data = e.target.result;
+          pdfObject.width = "100%";
+          pdfObject.height = "500";
+          filePreview.innerHTML = "";
+          filePreview.appendChild(pdfObject);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        filePreview.innerHTML = "File preview not supported for this file type.";
+      }
+    }
+  }
+
+  function submitForm() {
+    // Implement your logic for form submission
+    if (selectedFile) {
+      console.log("File submitted:", selectedFile.name);
+      // Add your submission logic here, for example, using FormData to submit the file
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+
+      // Example: You can use fetch API to send the form data to the server
+      // fetch("your_upload_endpoint", {
+      //   method: "POST",
+      //   body: formData,
+      // })
+      // .then(response => response.json())
+      // .then(data => console.log(data))
+      // .catch(error => console.error('Error:', error));
+    } else {
+      console.log("No file selected for submission");
+    }
+  }
+
+  function deleteFile() {
+    // Implement your logic for deleting the selected file
+    const filePreview = document.getElementById("file-preview");
+    const fileLabel = document.getElementById("file-label");
+  }
