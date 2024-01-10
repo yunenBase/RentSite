@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+  }
+  :root {
+    --one: #618264;
+    --two: #79AC78;
+    --three: #B0D9B1;
+    --four: #D0E7D2;
+}
+
+
+body{
+    height: 1080px;
+    max-width: 1920px;
+    display: flex;
+    align-items: center;
+}
+h2{
+    text-align: center;
+}
+
+.boxlogin{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dadce0;
+    border-radius: 8px;
+    height: 698px;
+    width: 576px;
+    margin: 50px auto;
+}
+.logolog{
+    margin-top: 70px;
+    background-color: var(--one);
+    height: 60px;
+    width: 60px;
+    
+}
+
+.judul{
+    margin-bottom: 25px;
+}
+.judulr{
+    margin-bottom: 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 25px;
+}
+.buton {
+    margin-top: 30px;
+    border-radius: 8px;
+    width: 192px;
+    height: 40px;
+    align-self: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+input {
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    align-self: flex-start;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.text1{
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.text2{
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.text3{
+    width: 400px;
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.boxRegister{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dadce0;
+    border-radius: 8px;
+    height: 698px;
+    width: 576px;
+    margin: 50px auto;
+}
+
+.register {
+    margin-top: 0px;
+    border-radius: 8px;
+    border: 1px solid #dae0dc;
+    align-self: flex-start;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.butonregister {
+    margin-top: 10px;
+    border-radius: 8px;
+    width: 192px;
+    height: 40px;
+    align-self: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.boxreg {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 25px;
+}
+
+.text2reg{
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.text3reg{
+    width: 400px;
+    margin-top: 25px;
+    font-weight: 400;
+    font-size: 15px;
+}
