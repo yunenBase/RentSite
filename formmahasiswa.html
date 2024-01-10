@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <link rel="stylesheet" href="formmahasiswa.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,700&family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Login Form -->
+    <div class="boxlogin">
+        
+        <div class="logolog">logo</div>
+        <form class="box" action="formmahasiswa.php" method="post"> 
+            <h2 class="judul">Isi Data Dengan Benar</h2>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #79AC78;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/submit" method="post">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required>
+
+        <label for="nim">NIM:</label>
+        <input type="text" id="nim" name="nim" required>
+
+        <label for="Fakultas">Fakultas:</label>
+        <input type="text" id="fakultas" name="fakultas" required>
+
+        <label for="jurusan">Jurusan:</label>
+        <input type="text" id="jurusan" name="jurusan" required>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+
+        <button type="submit">Daftar</button>
+</body>
+</html>
